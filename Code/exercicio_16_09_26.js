@@ -1,16 +1,22 @@
 function ValidaCPF(cpf) {
-  function cleanCPF() {
+  cleanCPF(cpf)
+  function cleanCPF(cpf) {
     let cpfLimpo = cpf.replace(/\D+/g, "");
-    let cpfArray = Array.from(cpfLimpo);
-    validaCPF(cpfArray);
+    let cpfSeparado = cpfLimpo.split("");
+    let newArrayNumber = cpfSeparado.map(d => Number(d))
+    validaCPF(newArrayNumber);
   }
   function validaCPF(cpfArray) {
     if (cpfArray.length > 11) {
-      console.log('limite de caracteres ultrapassado');
+      console.log("limite de caracteres ultrapassado");
       return;
+    } else {
+      primeiroDígito(cpfArray);
     }
   }
-  cleanCPF();
-}
+  function primeiroDígito(cpfArray) {
+   
+  };
+  }
 
-ValidaCPF("123.532.622.441");
+ValidaCPF("123.532.622.44");
